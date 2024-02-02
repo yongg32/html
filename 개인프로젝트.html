@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #nav3 {
+            width: 100%;
+            position: fixed;
+            text-align: center;
+            background-color: #1b2035;
+            color: #fff;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #nav3>a {
+            line-height: 80px;
+            display: block;
+            font-size: 30px;
+            font-weight: 900;
+            position: absolute;
+            left: 30px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        #nav3>ul {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            float: right;
+        }
+
+        #nav3>ul li {
+            display: inline-block;
+            line-height: 80px;
+            padding: 0 20px;
+        }
+
+        #nav3>ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #nav3>select {
+            padding: 0 20px;
+            height: 30px;
+            background-color: #1b2035;
+            color: #fff;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 2px solid #fff;
+            border-radius: 30px;
+            z-index: 1000;
+        }
+
+        #nav3>ul li:hover,
+        #nav3>select:hover {
+            background-color: #2a2f4e;
+        }
+
+        @media (max-width: 768px) {
+            #nav3>ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: #1b2035;
+            }
+
+            #nav3>ul.show {
+                display: block;
+            }
+
+            #nav3>ul li {
+                display: block;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav id="nav3">
+    <a href="#">logo</a>
+    <ul>
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+        <li><a href="#">menu5</a></li>
+    </ul>
+    <select>
+        <option>=test=</option>
+        <option>=test=</option>
+        <option>=test=</option>
+    </select>
+</nav>
+
+<form name="form1">
+    <!-- Your existing form content -->
+    <!-- First Select Box Container -->
+    <div style="display: inline-block; margin-right: 10px; margin-top: 120px;">
+        <table cellpadding="0" cellspacing="0" style="cursor:pointer" onClick="multiSelect('OPEN', 'Div1')">
+            <tr>
+                <td align="center" width="200" style="border:1px solid;font-size:12px;">문제유형</td>
+                <td><input type="button" value="▼" onclick=""></td>
+            </tr>
+        </table>
+
+        <div id="Div1" style="position:absolute;visibility:hidden;font-size:12px;">
+            <ul>
+                <li><input type="checkbox" name="chk1" id="chk1">조건문</li>
+                <li><input type="checkbox" name="chk2" id="chk2">반복문</li>
+                <li><input type="checkbox" name="chk3" id="chk3">함수</li>
+                <li><input type="checkbox" name="chk4" id="chk4">문자열</li>
+                <li><input type="checkbox" name="chk5" id="chk5">배열</li>
+            </ul>
+            <div style="padding-top:3px;text-align:right"><input type="button" value="확인" onClick="multiSelect('CLOSE', 'Div1')"></div>
+        </div>
+    </div>
+
+    <!-- Rest of your form content -->
+</form>
+
+<script>
+    function multiSelect(action, divId) {
+        var div = document.getElementById(divId);
+        if (action === 'OPEN') {
+            div.style.visibility = 'visible';
+        } else if (action === 'CLOSE') {
+            div.style.visibility = 'hidden';
+        }
+    }
+</script>
+
+</body>
+</html>
